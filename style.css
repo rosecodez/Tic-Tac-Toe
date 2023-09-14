@@ -18,10 +18,14 @@ h1 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 160px;
+    width: 454px;
 }
 .square {
     display: flex;
     border-color: black;
     border-style: solid;
+    width: 138px;
+    height: 188px;
+    justify-content: center;
+    align-items: center;
 }

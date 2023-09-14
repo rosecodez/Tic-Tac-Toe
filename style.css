@@ -7,9 +7,28 @@ h1 {
     display: flex;
     font-size: 40px;
     justify-content: center;
-    padding-top: 120px;
+    padding-top: 42px;
+}
+p {
+    font-style: italic;
+    font-size: 25px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+button {
+    border: none;
+    padding: 16px 68px;
+    font-size: 16px;
+    background-color: black;
+    cursor: pointer;
+    color: white;
+    border-radius: 16px;
 }
 #container {
+    visibility: hidden;
     display: flex;
     justify-content: center;
     padding-top: 50px;
@@ -28,4 +47,5 @@ h1 {
     height: 188px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }

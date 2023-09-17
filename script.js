@@ -15,10 +15,17 @@ const player = (name) => {
     return { getName, sayName };
 };
 
-let img1 = document.createElement('img');
-img1.src = 'images/x.png';
-img1.height = 60;
-img1.width = 60;
+const one = document.getElementById("one");
+const two = document.getElementById("two");
+const three = document.getElementById("three");
+const four = document.getElementById("four");
+const five = document.getElementById("five");
+const six = document.getElementById("six");
+const seven = document.getElementById("seven");
+const eight = document.getElementById("eight");
+const nine = document.getElementById("nine");
+
+let choices = [one, two, three, four, five, six, seven, eight, nine]
 
 function getPlayerChoice () {
     const x = document.getElementById("x");
@@ -36,9 +43,9 @@ function getPlayerChoice () {
     board.addEventListener('click', function(e) {
         e.target.appendChild(img1);
     });
-
-    container.style.visibility = "visible";
-
+}
+getPlayerChoice ();
+function getComputerChoice() {
     let img2 = document.createElement('img');
     img2.src = 'images/o.png';
     img2.height = 60;
@@ -47,4 +54,3 @@ function getPlayerChoice () {
         e.target.appendChild(img2);
     });
 }
-getPlayerChoice ();

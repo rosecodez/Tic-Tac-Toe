@@ -33,7 +33,7 @@ button {
     justify-content: center;
     padding-top: 50px;
 }
-#squares {
+#board {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

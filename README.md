@@ -1,1 +1,4 @@
 # Tic-Tac-Toe
+Difficulties encountered:
+- creating the 2 logo images for `x` and `o` and assigning in innerHTMl, at first, gave me some problems reading about `Cross-Origin Read Blocking (CORB)`, after reasearching about that, which I don't anything about it so far, made me use just the simple `appendChild` instead;
+- initially, I have chosen to let the user choose if he/she wants to go with `x` or `o`. I have done that easily creating an `x` button and inside that `addEventListener` I have built the code for handling the `user` having `x` and the `computer` having `o`, so for the `o` button the same pattern but reversed - that actually seemed like a really good idea for me at first, but the more i kept building I realised it is too much for how little I have learned yet, therefore i decided to just let the player be `x` and computer `o`;

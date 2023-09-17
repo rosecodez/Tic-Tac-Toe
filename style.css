@@ -18,6 +18,11 @@ p {
     align-items: center;
     gap: 10px;
 }
+#button-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
 button {
     border: none;
     padding: 16px 68px;
@@ -28,10 +33,9 @@ button {
     border-radius: 16px;
 }
 #container {
-    visibility: hidden;
     display: flex;
     justify-content: center;
-    padding-top: 50px;
+    padding-top: 30px;
 }
 #board {
     display: flex;
@@ -48,4 +52,8 @@ button {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+#restart {
+    display: flex;
+    justify-content: center;
 }

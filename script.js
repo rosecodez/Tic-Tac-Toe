@@ -26,40 +26,25 @@ function getPlayerChoice () {
     const p = document.querySelector("p");
     const container = document.getElementById("container");
     const square = document.getElementsByClassName("square");
-    x.onclick = function () {
-        p.style.display = "none";
-        container.style.visibility = "visible";
-        const playerChoice = "x";
-        const computerChoice = "0";
-        console.log("Player choice is x");
-        console.log("Computer choice is 0");
+    
+    container.style.visibility = "visible";
+    const board = document.getElementById("board");
+    let img1 = document.createElement('img');
+    img1.src = 'images/x.png';
+    img1.height = 60;
+    img1.width = 60;
+    board.addEventListener('click', function(e) {
+        e.target.appendChild(img1);
+    });
 
-        const board = document.getElementById("board");
-        let img1 = document.createElement('img');
-        img1.src = 'images/x.png';
-        img1.height = 60;
-        img1.width = 60;
-        board.addEventListener('click', function(e) {
-            e.target.appendChild(img1);
-        });
-    }
+    container.style.visibility = "visible";
 
-    zero.onclick = function () {
-        p.style.display = "none";
-        container.style.visibility = "visible";
-        const playerChoice = "0";
-        const computerChoice = "x"
-        console.log("Player choice is 0");
-        console.log("Computer choice is x");
-
-        const board = document.getElementById("board");
-        let img2 = document.createElement('img');
-        img2.src = 'images/o.png';
-        img2.height = 60;
-        img2.width = 60;
-        board.addEventListener('click', function(e) {
-            e.target.appendChild(img2);
-        });
-    }
+    let img2 = document.createElement('img');
+    img2.src = 'images/o.png';
+    img2.height = 60;
+    img2.width = 60;
+    board.addEventListener('click', function(e) {
+        e.target.appendChild(img2);
+    });
 }
 getPlayerChoice ();

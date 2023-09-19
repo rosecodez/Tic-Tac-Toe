@@ -1,41 +1,85 @@
 // create module for gameboard
 const gameBoard = (() => {
-    const board = document.getElementById("board");
-    const container = document.getElementById("container");
-    let game = ["", "", "", "", "", "", "", "", ""];
-    return { board };
+  const array = ["", "", "", "", "", "", "", "", ""] 
+  const board = document.getElementById("board");
+  const container = document.getElementById("container");
+  const squares = Array.from(document.querySelectorAll(".square"));
+  let restart = document.getElementById("restart");
+  return { board, array, squares, restart };
 })();
-    
 
 // create factory function for players
 const player = (name) => {
-    const getName = () => name;
-    const sayName = () => console.log(`${getName()} is the Player}.`);
-    return { getName, sayName };
+  const getName = () => name;
+  const sayName = () => console.log(`${getName()} is the Player}.`);
+  return { getName, sayName };
 };
 
-function createXImage () {
-    const x = document.getElementById("x");
-    const container = document.getElementById("container");
-    const square = document.getElementsByClassName("square");
+function createX() {
+  gameBoard.squares.forEach(square => {
+    square.addEventListener("click", function(e) {
+      square.textContent = 'x';
+      aiChoice();
+    })
+  });
+}
+createX();
 
-    let img1 = document.createElement('img');
-    img1.src = 'images/x.png';
-    img1.height = 60;
-    img1.width = 60;
+function createO() {
+  gameBoard.squares.forEach(square => {
+    square.addEventListener("click", function(e) {
+      square.textContent = 'o';
+    })
+  });
+}
+function aiChoice() {
+  //choose a number 1-9
+  let randomID = Math.floor(Math.random() * 8);
+  //select a random cell based on random number and select it with id number
+  let randomCell = document.getElementById(randomID);
+  //while the cell has text, 
+  while (randomCell.textContent != "") {
+    //keep generating random number 
+    randomID = Math.floor(Math.random() * 8);
+    randomCell = document.getElementById(randomID);
+  }
+  //place ai marker in the random cell
+  randomCell.textContent = 'o';
+  if (playerHasWon() == true){
+    console.log("Player has won!");
+  }
+}
+const winningCombos = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+]
+function playerHasWon() {
+  //turns nodelist to array
+  for (const condition of winningCombos) {
+    let [a, b, c] = condition;
+    if (gameBoard.squares[a].textContent && (gameBoard.squares[a].textContent == gameBoard.squares[b].textContent && gameBoard.squares[a].textContent == gameBoard.squares[c].textContent)){
+      //if player marker matches the winning markers
+      if("x" == gameBoard.squares[a].textContent){
+        //player wins
+        return true
+      }
+      else{
+        //player doest win basically
+          return false
+      }
+    }
+  }
 }
 
-function createOImage() {
-    const zero = document.getElementById("zero");
-    let img2 = document.createElement('img');
-    img2.src = 'images/o.png';
-    img2.height = 60;
-    img2.width = 60;
-}
 
-let restart = document.getElementById("restart");
-restart.addEventListener("click", restartGame)
-function restartGame() {
-    let game = ["", "", "", "", "", "", "", "", ""];
-    document.querySelectorAll(".square").forEach(square =>square.innerHTML = "");
+gameBoard.restart.addEventListener("click", resetGame)
+function resetGame() {
+  let array = ["", "", "", "", "", "", "", "", ""];
+  document.querySelectorAll(".square").forEach(square => square.innerHTML = "");
 }

@@ -1,14 +1,16 @@
 * {
     margin: 0;
     padding: 0;
-    background-color: #fb7185;
+    background-color: pink;
 }
-h1 { 
+  
+h1 {
     display: flex;
     font-size: 40px;
     justify-content: center;
     padding-top: 42px;
 }
+  
 p {
     font-style: italic;
     font-size: 25px;
@@ -18,11 +20,13 @@ p {
     align-items: center;
     gap: 10px;
 }
+  
 #button-container {
     display: flex;
     justify-content: center;
     padding-top: 20px;
 }
+  
 button {
     border: none;
     padding: 16px 68px;
@@ -32,19 +36,23 @@ button {
     color: white;
     border-radius: 16px;
 }
+  
 #container {
     display: flex;
     justify-content: center;
     padding-top: 30px;
 }
+  
 #board {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     width: 454px;
 }
-.square {
+  
+  .square {
     display: flex;
+    font-size: 100px;
     border-color: black;
     border-style: solid;
     width: 138px;
@@ -53,6 +61,7 @@ button {
     align-items: center;
     cursor: pointer;
 }
+  
 #restart {
     display: flex;
     justify-content: center;

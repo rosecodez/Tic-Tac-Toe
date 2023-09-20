@@ -50,7 +50,7 @@ button {
     width: 454px;
 }
   
-  .square {
+.square {
     display: flex;
     font-size: 100px;
     border-color: black;
@@ -62,7 +62,22 @@ button {
     cursor: pointer;
 }
   
-#restart {
+.restart {
     display: flex;
     justify-content: center;
+}
+#dialog {
+    width: 558px;
+    margin-left: 286px;
+    height: 374px;
+    margin-top: 275px;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+}
+#dialogTxt {
+    padding-bottom: 20px;
+}
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.541);
 }

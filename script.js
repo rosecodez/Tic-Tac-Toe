@@ -5,7 +5,8 @@ const gameBoard = (() => {
   const container = document.getElementById("container");
   const squares = Array.from(document.querySelectorAll(".square"));
   let restart = document.getElementById("restart");
-  return { board, array, squares, restart };
+  let dialogBtn = document.getElementById("dialogBtn")
+  return { board, array, squares, restart, dialogBtn };
 })();
 
 // create factory function for players
@@ -46,7 +47,9 @@ function aiChoice() {
   //place ai marker in the random cell
   randomCell.textContent = 'o';
   if (playerHasWon() == true){
-    console.log("Player has won!");
+
+    dialog.style.display = "flex";
+    dialog.showModal();
   }
 }
 const winningCombos = [
@@ -67,19 +70,28 @@ function playerHasWon() {
       //if player marker matches the winning markers
       if("x" == gameBoard.squares[a].textContent){
         //player wins
-        return true
+        return true;
       }
       else{
-        //player doest win basically
-          return false
+        //player doesnt win
+          return false;
       }
     }
   }
 }
-
-
-gameBoard.restart.addEventListener("click", resetGame)
+gameBoard.dialogBtn.addEventListener("click", resetModal);
+function resetModal() {
+  let array = ["", "", "", "", "", "", "", "", ""];
+  document.querySelectorAll(".square").forEach(square => square.innerHTML = "");
+  dialog.style.display = "none";
+  dialog.close();
+}
+gameBoard.restart.addEventListener("click", resetGame);
 function resetGame() {
   let array = ["", "", "", "", "", "", "", "", ""];
   document.querySelectorAll(".square").forEach(square => square.innerHTML = "");
+  let p = document.createElement("p");
+  dialog.appendChild(p);
+  p.textContent = "Player wins"
+  row.setAttribute("id", "p");
 }
